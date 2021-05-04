@@ -3,8 +3,17 @@
   "rules": {
     "semi": ["error", "always"],
     "jsx-quotes": ["error", "prefer-single"],
-    "comma-dangle": ["error", "never"],
-    "arrow-parens": ["error", "as-needed"],
-    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }]
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "never",
+        "objects": "always",
+        "imports": "never",
+        "exports": "never",
+        "functions": "never"
+      }
+    ],
+    "arrow-parens": ["error", "always"],
+    "react/jsx-filename-extension": ["error", {"extensions": [".js", ".jsx"]}]
   }
 }
