@@ -1,0 +1,10 @@
+{
+  "extends": ["react-app", "airbnb", "airbnb/hooks"],
+  "rules": {
+    "semi": ["error", "always"],
+    "jsx-quotes": ["error", "prefer-single"],
+    "comma-dangle": ["error", "never"],
+    "arrow-parens": ["error", "as-needed"],
+    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }]
+  }
+}

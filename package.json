@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
+    "prettier": "^2.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -34,5 +35,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^7.25.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "husky": "^6.0.0",
+    "lint-staged": "^10.5.4"
+  },
+  "lint-staged": {
+    "*.{js, jsx, ts, tsx}": "eslint --fix",
+    "*.{json,js, jsx, ts, tsx, scss,md}": "prettier --write"
   }
 }
