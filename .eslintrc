@@ -7,7 +7,7 @@
       "error",
       {
         "arrays": "never",
-        "objects": "always",
+        "objects": "only-multiline",
         "imports": "never",
         "exports": "never",
         "functions": "never"
@@ -18,6 +18,6 @@
     "linebreak-style": ["error", "windows"],
     "react/react-in-jsx-scope": 0,
     "arrow-body-style": ["error", "as-needed"],
-    "object-curly-spacing":"off"
+    "object-curly-spacing":"off",
   }
 }
