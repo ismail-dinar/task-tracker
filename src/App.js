@@ -36,10 +36,15 @@ const App = () => {
 
   return (
     <Container maxWidth='lg'>
-      <Box display='flex' flexDirection='row' justifyContent='center'>
+      <Box
+        display='flex'
+        flexDirection='column'
+        justifyContent='center'
+        alignItems='center'
+      >
         <Header />
+        <Tasks tasks={tasks} />
       </Box>
-      <Tasks className='w-50' tasks={tasks} />
     </Container>
   );
 };
