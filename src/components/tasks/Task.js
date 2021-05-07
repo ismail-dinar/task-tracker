@@ -7,6 +7,7 @@ import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import PropTypes from 'prop-types';
 import * as moment from 'moment';
+import Tooltip from '@material-ui/core/Tooltip';
 import TaskObject from '../../types/Task';
 
 const Task = ({task}) => {
@@ -16,17 +17,21 @@ const Task = ({task}) => {
     <ListItem role={undefined} dense>
       <ListItemText primary={task.text} secondary={formattedDate} />
       <ListItemIcon>
-        <Checkbox
-          edge='start'
-          tabIndex={-1}
-          disableRipple
-          aria-label='task-checkbox'
-        />
+        <Tooltip title='Finish Task'>
+          <Checkbox
+            edge='start'
+            tabIndex={-1}
+            disableRipple
+            aria-label='task-checkbox'
+          />
+        </Tooltip>
       </ListItemIcon>
       <ListItemSecondaryAction>
-        <IconButton edge='end' aria-label='delete-task'>
-          <DeleteIcon />
-        </IconButton>
+        <Tooltip title='Delete Task'>
+          <IconButton edge='end' aria-label='delete-task'>
+            <DeleteIcon />
+          </IconButton>
+        </Tooltip>
       </ListItemSecondaryAction>
     </ListItem>
   );
