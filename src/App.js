@@ -7,7 +7,7 @@ import Header from './components/header/Header';
 import './App.scss';
 
 const App = () => {
-  const [tasks] = useState([
+  const [tasks, setTasks] = useState([
     {
       id: 1,
       text: 'Task 1',
@@ -34,6 +34,10 @@ const App = () => {
     }
   ]);
 
+  const deleteTask = (taskId) => {
+    setTasks(tasks.filter((task) => task.id !== taskId));
+  };
+
   return (
     <Container maxWidth='lg'>
       <Box
@@ -43,7 +47,7 @@ const App = () => {
         alignItems='center'
       >
         <Header />
-        <Tasks tasks={tasks} />
+        <Tasks tasks={tasks} onDelete={deleteTask} />
       </Box>
     </Container>
   );

@@ -10,7 +10,7 @@ import * as moment from 'moment';
 import Tooltip from '@material-ui/core/Tooltip';
 import TaskObject from '../../types/Task';
 
-const Task = ({task}) => {
+const Task = ({task, onDelete}) => {
   const formattedDate = moment(task.dueDate).format('YYYY-MM-DD');
   const style = {
     backgroundColor: '#f4f4f4',
@@ -46,7 +46,11 @@ const Task = ({task}) => {
       </ListItemIcon>
       <ListItemSecondaryAction>
         <Tooltip title='Delete Task'>
-          <IconButton edge='end' aria-label='delete-task'>
+          <IconButton
+            edge='end'
+            aria-label='delete-task'
+            onClick={() => onDelete(task.id)}
+          >
             <DeleteIcon />
           </IconButton>
         </Tooltip>
@@ -57,6 +61,7 @@ const Task = ({task}) => {
 
 Task.propTypes = {
   task: PropTypes.shape(TaskObject).isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default Task;
