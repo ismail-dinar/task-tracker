@@ -12,10 +12,28 @@ import TaskObject from '../../types/Task';
 
 const Task = ({task}) => {
   const formattedDate = moment(task.dueDate).format('YYYY-MM-DD');
+  const style = {
+    backgroundColor: '#f4f4f4',
+  };
+
+  const primaryTypographyProps = {
+    variant: 'h6',
+    color: 'primary',
+  };
+
+  const secondaryTypographyProps = {
+    variant: 'subtitle2',
+    color: 'textSecondary',
+  };
 
   return (
-    <ListItem role={undefined} dense>
-      <ListItemText primary={task.text} secondary={formattedDate} />
+    <ListItem className='py-2 my-2' style={style} dense>
+      <ListItemText
+        primaryTypographyProps={primaryTypographyProps}
+        secondaryTypographyProps={secondaryTypographyProps}
+        primary={task.text}
+        secondary={formattedDate}
+      />
       <ListItemIcon>
         <Tooltip title='Finish Task'>
           <Checkbox
