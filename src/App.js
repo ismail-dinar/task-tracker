@@ -4,8 +4,8 @@ import {useState} from 'react';
 import {SnackbarProvider} from 'notistack';
 import Tasks from './components/tasks/Tasks';
 import Header from './components/header/Header';
-
 import './App.scss';
+import NoTasks from './components/tasks/NoTasks';
 
 const App = () => {
   const [tasks, setTasks] = useState([
@@ -49,7 +49,11 @@ const App = () => {
           alignItems='center'
         >
           <Header />
-          <Tasks tasks={tasks} onDelete={deleteTask} />
+          {tasks.length > 0 ? (
+            <Tasks tasks={tasks} onDelete={deleteTask} />
+          ) : (
+            <NoTasks />
+          )}
         </Box>
       </Container>
     </SnackbarProvider>
