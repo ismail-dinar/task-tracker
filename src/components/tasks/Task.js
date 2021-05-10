@@ -8,9 +8,11 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import PropTypes from 'prop-types';
 import * as moment from 'moment';
 import Tooltip from '@material-ui/core/Tooltip';
+import {useSnackbar} from 'notistack';
 import TaskObject from '../../types/Task';
 
 const Task = ({task, onDelete}) => {
+  const {enqueueSnackbar} = useSnackbar();
   const formattedDate = moment(task.dueDate).format('YYYY-MM-DD');
   const style = {
     backgroundColor: '#f4f4f4',
@@ -24,6 +26,15 @@ const Task = ({task, onDelete}) => {
   const secondaryTypographyProps = {
     variant: 'subtitle2',
     color: 'textSecondary',
+  };
+
+  const notiOptions = {
+    variant: 'success',
+  };
+
+  const onClick = () => {
+    onDelete(task.id);
+    enqueueSnackbar('Task deleted successfully', notiOptions);
   };
 
   return (
@@ -46,11 +57,7 @@ const Task = ({task, onDelete}) => {
       </ListItemIcon>
       <ListItemSecondaryAction>
         <Tooltip title='Delete Task'>
-          <IconButton
-            edge='end'
-            aria-label='delete-task'
-            onClick={() => onDelete(task.id)}
-          >
+          <IconButton edge='end' aria-label='delete-task' onClick={onClick}>
             <DeleteIcon />
           </IconButton>
         </Tooltip>
